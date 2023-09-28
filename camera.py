@@ -5,10 +5,15 @@ from time import sleep
 import pygame
 from pygame.locals import *
 from io import BytesIO
+from libcamera import controls
 
 camera = Picamera2()
 capture_config = camera.create_still_configuration()
 camera.configure(camera.create_preview_configuration())
+camera.set_controls({"AfMode": controls.AfModeEnum.Manual, "LensPosition": 10.0})
+# success = camera.autofocus_cycle()
+# job = camera.autofocus_cycle(wait=False)
+# success = camera.wait(job)
 
 # Initialize pygame
 pygame.init()
@@ -29,15 +34,15 @@ def display_image(image_stream):
     pygame.display.flip()
 
 def capture_and_show():
-    camera.start()
     data = BytesIO()
+    camera.start()
     camera.capture_file(data, format='jpeg')
     display_image(data)
 
 print("Waiting for signal...")
 
 try:
-    camera.start_preview()
+    # camera.start_preview()
     while True:
         for event in pygame.event.get():
             if event.type == QUIT or (event.type == KEYDOWN and event.key == K_ESCAPE):
@@ -49,7 +54,7 @@ try:
         if GPIO.input(INPUT_PIN) == GPIO.HIGH:
             print("Signal detected! Capturing and displaying image...")
             capture_and_show()
-            sleep(0.05)  # Sleep for 50ms for rapid capture/display
+        sleep(0.05)  # Sleep for 50ms for rapid capture/display
 finally:
     camera.stop_preview()
     pygame.quit()
