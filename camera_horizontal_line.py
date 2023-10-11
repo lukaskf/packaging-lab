@@ -50,16 +50,16 @@ def display_image(image_stream):
     image = pygame.transform.scale(image, (pygame.display.Info().current_w, pygame.display.Info().current_h))
     
     screen.blit(image, (0, 0))
-    # line_color = (255, 0, 0)  # Color of the line, in this case, red
-    # # vertical line
-    # line_start = (pygame.display.Info().current_w // 2, 0)  # Starting point of the line
-    # line_end = (pygame.display.Info().current_w // 2, pygame.display.Info().current_h)  # Ending point of the line
-    # # horizontal line
-    # line_start = (0, pygame.display.Info().current_h // 2)  # Starting point of the line
-    # line_end = (pygame.display.Info().current_w, pygame.display.Info().current_h // 2 )  # Ending point of the line
-    # line_width = 5  # Width of the line in pixels
+    line_color = (255, 0, 0)  # Color of the line, in this case, red
+    # vertical line
+    line_start = (pygame.display.Info().current_w // 2, 0)  # Starting point of the line
+    line_end = (pygame.display.Info().current_w // 2, pygame.display.Info().current_h)  # Ending point of the line
+    # horizontal line
+    line_start = (0, pygame.display.Info().current_h // 2)  # Starting point of the line
+    line_end = (pygame.display.Info().current_w, pygame.display.Info().current_h // 2 )  # Ending point of the line
+    line_width = 5  # Width of the line in pixels
     
-    # pygame.draw.line(screen, line_color, line_start, line_end, line_width)
+    pygame.draw.line(screen, line_color, line_start, line_end, line_width)
     pygame.display.flip()
 
 def capture_and_show():

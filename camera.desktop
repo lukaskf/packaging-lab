@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Packaging Lab Camera
+Comment=Packaging Lab Camera
+Exec=/home/packaging/packaging-lab/camera.py
+Icon=/home/packaging/packaging-lab/camera.png
+Terminal=false
+Type=Application
+Categories=Utility;
