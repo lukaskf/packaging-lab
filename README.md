@@ -5,6 +5,9 @@
 get IP address for ssh
 `hostname -I`
 
+allow ssh
+`sudo raspi-config`
+
 copy files 
 `scp -r ~/pathto/packaging-lab RASPI-IP-ADDRESS:/home/packaging/
 
